@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div class="div" id="content">
+      <h1>Triangle Search Approach for Convex Hull</h1>
+      <p>Here we loop over all possible triangles in the point space and for each triangle we determine if the other points are within or not within the triangle. If they are inside the triangle then they cannot be in the convex hull. We start by assuming that all points are part of the convex hull and during iteration we remove the points which are found to be within a triangle. What we are left with is points that are part of the convex hull<br><br></p>
+      <div id="canv"></div>
+    </div>
+    <script src="sketch.js"></script>
+  </body>
+</html>

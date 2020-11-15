@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div class="div" id="content">
+      <h1>Incremental Method / Jarvis March for Convex Hull</h1>
+      <p>The gift wrapping algorithm begins with i=0 and a point p0 known to be on the convex hull, e.g., the leftmost point, and selects the point pi+1 such that all points are to the right of the line pi pi+1. This point may be found in O(n) time by comparing polar angles of all points with respect to point pi taken for the center of polar coordinates. Letting i=i+1, and repeating with until one reaches ph=p0 again yields the convex hull in h steps. In two dimensions, the gift wrapping algorithm is similar to the process of winding a string (or wrapping paper) around the set of points. <br><br></p>
+
+      <a href="https://www.youtube.com/watch?v=YNyULRrydVI&t=1161s">Written by The Coding Train</a>
+      <div id="canv"></div>
+    </div>
+    <script src="sketch.js"></script>
+  </body>
+</html>

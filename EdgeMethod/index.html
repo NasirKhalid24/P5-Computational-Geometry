@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div class="div" id="content">
+      <h1>Edge Search Approach for Convex Hull</h1>
+      <p>Here we try to identify extreme edges which will be part of the convex hull. An extreme edge is one that has all the points to either side and is therefore part of the convex hull. In this method we loop over all possible edges and at each edge we check to see if all the other points are on the left or right. If there are points on both sides then that edge cannot be part of the convex hull. However, if the points are either all on the right or the left then this edge is part of the convex hull.<br><br></p>
+      <div id="canv"></div>
+    </div>
+    <script src="sketch.js"></script>
+  </body>
+</html>
