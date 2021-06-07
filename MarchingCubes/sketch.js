@@ -128,6 +128,54 @@ function updateEverything() {
       }
       break;
 
+    case "terrain":
+
+      // Generate box movement, points and assign surface level value
+      for(var a = gridLimit; a >= -gridLimit; a = a-boxSize){
+        for(var b = gridLimit; b >= -gridLimit; b = b-boxSize){
+          for(var c = gridLimit; c >= -gridLimit; c = c-boxSize){
+
+            points.push([a, b, c])
+            
+            surface[`${a}, ${b}, ${c}`] = map(-b + (random(a, c)*noise(a, b, c)), -325, 325, -1, 1) > 0 ? 0 : 1;
+
+            if(c != -gridLimit && b != -gridLimit && a != -gridLimit){
+              boxPositions.push([a-(boxSize/2), b-(boxSize/2), c-(boxSize/2)]);
+            }
+
+          }
+        }
+      }
+
+      var t = Object.values(surface)
+      var max = Math.max(t)
+      break;
+
+
+      case "terrainelevated":
+
+        // Generate box movement, points and assign surface level value
+        for(var a = gridLimit; a >= -gridLimit; a = a-boxSize){
+          for(var b = gridLimit; b >= -gridLimit; b = b-boxSize){
+            for(var c = gridLimit; c >= -gridLimit; c = c-boxSize){
+  
+              points.push([a, b, c])
+              
+              surface[`${a}, ${b}, ${c}`] = map(- b + (random(a, c)*noise(a, b, c) + (b % 100)), -325, 325, -1, 1) > 0 ? 0 : 1;
+              
+
+              if(c != -gridLimit && b != -gridLimit && a != -gridLimit){
+                boxPositions.push([a-(boxSize/2), b-(boxSize/2), c-(boxSize/2)]);
+              }
+  
+            }
+          }
+        }
+  
+        var t = Object.values(surface)
+        var max = Math.max(t)
+        break;
+
     default:
       break;
   }
@@ -199,7 +247,8 @@ function basics(){
 
   for (let item of points){
     push();
-    stroke(surface[`${item[0]}, ${item[1]}, ${item[2]}`] > 0 ? 255 : 0);
+    // stroke(surface[`${item[0]}, ${item[1]}, ${item[2]}`] > 0 ? 255 : 0);
+    stroke(map(surface[`${item[0]}, ${item[1]}, ${item[2]}`], -1, 1, 0, 255))
 
     translate(item[0], item[1], item[2])
     sphere(gridLimit / 50, 8);
